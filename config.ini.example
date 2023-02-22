@@ -1,13 +1,20 @@
 [server]
+env = dev
+# 日志存储文件
+logFile = storage/logs/app.log
+# 是否在控制台输出日志
+logConsole = true
+logLevel = debug
+
 # debug 开发模式，release 生产模式
-AppMode = debug
-HttpPort = :3000
-JwtKey = yourKey
+appMode = debug
+httpPort = 3000
+jwtKey = 123456
 
 [database]
-Db = mysql
-DbHost = 127.0.0.1
-DbPort = 3306
-DbUser = root
-DbPassWord = root
-DbName = ginblog
+db = mysql
+dbHost = 127.0.0.1
+dbPort = 3306
+dbUser = root
+dbPassWord = root
+dbName = ginblog
