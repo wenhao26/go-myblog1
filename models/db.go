@@ -22,6 +22,7 @@ func InitDb() {
 		config.DbHost,
 		config.DbPort,
 		config.DbName)
+	fmt.Println(dns)
 	db, err = gorm.Open(mysql.Open(dns), &gorm.Config{
 		// 日志模式
 		Logger: logger.Default.LogMode(logger.Silent),
