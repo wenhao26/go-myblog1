@@ -48,8 +48,8 @@ func LoadDatabaseCnf(file *ini.File) {
 	DbHost = section.Key("dbHost").MustString("127.0.0.1")
 	DbPort = section.Key("dbPort").MustInt(3306)
 	DbUser = section.Key("dbUser").MustString("root")
-	DbPassWord = section.Key("dbPassWord").MustString("")
-	DbName = section.Key("dbName").MustString("")
+	DbPassWord = section.Key("dbPassWord").String()
+	DbName = section.Key("dbName").String()
 }
 
 func IsDev() bool {
