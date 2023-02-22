@@ -13,3 +13,4 @@
 *.out
 storage
 config.ini
+tmp

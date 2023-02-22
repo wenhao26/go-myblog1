@@ -17,7 +17,7 @@ import (
 
 func InitRouter(r *gin.Engine) {
 	// 设置允许最大访问数
-	r.Use(limit.MaxAllowed(100))
+	r.Use(limit.MaxAllowed(1000))
 	// 根据客户端IP，限制访问速率
 	r.Use(limit2.NewRateLimiter(func(c *gin.Context) string {
 		return c.ClientIP()
@@ -28,6 +28,8 @@ func InitRouter(r *gin.Engine) {
 	}, func(c *gin.Context) {
 		c.AbortWithStatus(429)
 	}))
+	// 跟踪访问路由信息
+	r.Use(middleware.Tracker())
 
 	expire := time.Minute
 	store := persistence.NewInMemoryStore(expire)
