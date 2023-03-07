@@ -32,6 +32,6 @@ func GetArticles(page, limit int) ([]Article, int64) {
 // 获取文章信息
 func GetArticle(aid int) Article {
 	var article Article
-	db.Where("id=?", aid).First(&article)
+	db.Debug().Where("id=?", aid).First(&article)
 	return article
 }
